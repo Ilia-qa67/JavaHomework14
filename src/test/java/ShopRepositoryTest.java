@@ -39,12 +39,34 @@ public class ShopRepositoryTest {
         });
     }
 
-   /* @Test
+    @Test
     public void ShouldAddItem() {
         ShopRepository repo = new ShopRepository();
 
-        repo.add(new Product(10, "Курица", 325));
+        Product product1 = new Product(
+                10,
+                "Курица",
+                325
+        );
 
-        Assertions.assertArrayEquals(,repo.findAll());
-    }*/
+        Product product2 = new Product(
+                12,
+                "Хлеб",
+                25
+        );
+
+        Product product3 = new Product(
+                1,
+                "Яйцо",
+                10
+        );
+
+        repo.add(product1);
+        repo.add(product2);
+        repo.add(product3);
+
+        Product[] expected = {product1, product2, product3};
+        Product[] actual = repo.findAll();
+        Assertions.assertArrayEquals(expected,actual);
+    }
 }
